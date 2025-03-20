@@ -1,7 +1,7 @@
 # Piazza Assignment (A2)
 
 ## User Authentication (login/register):
-`REGISTER (with password hashed):`
+### REGISTER (with password hashed):
 ![register success](register.png)
 
 
