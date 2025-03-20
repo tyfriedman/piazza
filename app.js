@@ -3,11 +3,14 @@ const app = express();
 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 require('dotenv/config');
 
-// mongoose.connect(process.env.DB_CONNECTOR, ()=>{
-//     console.log('Connected to DB');
-// })
+const postRoute = require('./routes/posts');
+const authRoute = require('./routes/auth');
+
+app.use('/api/posts', postRoute);
+app.use('/api/users', authRoute);
 
 mongoose.connect(process.env.DB_CONNECTOR)
     .then(() => {
