@@ -63,9 +63,9 @@
 
 ## CRUD Operations for Posts:
 ### Create a post (POST /posts) - requires authentication:
-`Showing body:`
+* Showing body:
 ![create a post success - shows body](create_post1.png)
-`Showing headers:`
+* Showing headers:
 ![create a post success - shows headers](create_post2.png)
 
 
@@ -78,17 +78,33 @@
 
 
 ### Update a post (PUT /posts/:id) - only the post creator can update:
-`Showing body:`
+* Showing body:
 ![update post success - shows body](update_post1.png)
-`Showing headers:`
+* Showing headers:
 ![update post success - shows headers](update_post2.png)
 
 
 ### Delete a post (DELETE /posts/:id) - only the post creator can delete:
-`Showing body:`
+* Showing body:
 ![delete post success - shows body](delete_post1.png)
-`Showing headers:`
+* Showing headers:
 ![delete post success - shows headers](delete_post2.png)
 
 
-## Error Messages 
+## Error Messages For Assorted Calls:
+* Auth-token is invalid
+![Invalid Token](error1.png)
+* Empty auth-token or email mismatch
+![Access Denied](error2.png)
+* Not a valid email
+![Invalid Email](error3.png)
+* Password is empty
+![Password Empty](error4.png)
+* Name is empty
+![Name Empty](error5.png)
+* Password is too short
+![Password Too Short](error6.png)
+* User already exists
+![User Already Exists](error7.png)
+* Incorrect password
+![Incorrect Password](error8.png)
