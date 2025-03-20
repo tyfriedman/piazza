@@ -44,8 +44,14 @@ router.put('/:postId', verifyToken, async (req, res) => {
         if (updatedPost.createdBy !== req.body.email) {
             return res.status(401).send({ message: 'Unauthorized' });
         }
-        const response = await Post.updateOne({ _id: req.params.postId }, { $set: { title: req.body.title, description: req.body.description } });
-        res.send({status: response, post: updatedPost});
+        if (req.body.title) {
+            updatedPost.title = req.body.title;
+        }
+        if (req.body.description) {
+            updatedPost.description = req.body.description;
+        }
+        const response = await Post.updateOne({ _id: req.params.postId }, { $set: { title: updatedPost.title, description: updatedPost.title } });
+        res.send({status: response, post: req.params.postId});
     } catch (err) {
         res.status(400).send({ message: err });
     }
@@ -54,11 +60,11 @@ router.put('/:postId', verifyToken, async (req, res) => {
 router.delete('/:postId', verifyToken, async (req, res) => {
     try {
         const removedPost = await Post.findById(req.params.postId);
-        if (removedPost.createdBy !== req.user.name) {
+        if (removedPost.createdBy !== req.body.email) {
             return res.status(401).send({ message: 'Unauthorized' });
         }
-        const response = await Post.remove({ _id: req.params.postId });
-        res.send({status: response, post: removedPost});
+        const response = await Post.deleteOne({ _id: req.params.postId });
+        res.send({status: response, post: req.params.postId});
     } catch (err) {
         res.status(400).send({ message: err });
     }
