@@ -28,7 +28,7 @@ router.post('/', verifyToken, async (req, res) => {
     const post = new Post({
         title: req.body.title,
         description: req.body.description,
-        createdBy: req.user.name
+        createdBy: req.body.createdBy
     });
     try {
         const savedPost = await post.save();
@@ -41,7 +41,7 @@ router.post('/', verifyToken, async (req, res) => {
 router.put('/:postId', verifyToken, async (req, res) => {
     try {
         const updatedPost = await Post.findById(req.params.postId);
-        if (updatedPost.createdBy !== req.user.name) {
+        if (updatedPost.createdBy !== req.body.email) {
             return res.status(401).send({ message: 'Unauthorized' });
         }
         const response = await Post.updateOne({ _id: req.params.postId }, { $set: { title: req.body.title, description: req.body.description } });
