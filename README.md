@@ -17,40 +17,40 @@
 ## API Documentation
 
 ### Register: 
-Endpoint: `POST /users/register`
-Body: name, email, password
-Headers: N/A
+* Endpoint: `POST /users/register`
+* Body: name, email, password
+* Headers: N/A
 
 ### Login:
-Endpoint: `POST /users/login`
-Body: email, password
-Headers: N/A
-Returns: auth-token
+* Endpoint: `POST /users/login`
+* Body: email, password
+* Headers: N/A
+* Returns: auth-token
 
 ### Create a post:
-Endpoint: `POST /posts`
-Body: title, description, createdBy
-Headers: auth-token
+* Endpoint: `POST /posts`
+* Body: title, description, createdBy
+* Headers: auth-token
 
 ### Get all posts:
-Endpoint: `GET /posts`
-Body: N/A
-Headers: N/A
+* Endpoint: `GET /posts`
+* Body: N/A
+* Headers: N/A
 
 ### Get single post:
-Endpoint: `GET /posts/:id`
-Body: N/A
-Headers: N/A
+* Endpoint: `GET /posts/:id`
+* Body: N/A
+* Headers: N/A
 
 ### Update a post:
-Endpoint: `PUT /posts/:id`
-Body: email (must match post), title (optional), description (optional)
-Headers: auth-token
+* Endpoint: `PUT /posts/:id`
+* Body: email (must match post), title (optional), description (optional)
+* Headers: auth-token
 
 ### DELETE a post:
-Endpoint: `DELETE /posts/:id`
-Body: email (must match post)
-Headers: auth-token
+* Endpoint: `DELETE /posts/:id`
+* Body: email (must match post)
+* Headers: auth-token
 
 ## User Authentication (login/register):
 ### Register (POST /users/register):
